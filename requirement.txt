@@ -1,0 +1,7 @@
+flask
+wordcloud
+nltk
+matplotlib
+seaborn
+Counter
+sklearn

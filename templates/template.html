@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Spam/Ham Classifier</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Email Spam/Ham Classifier</h1>
+    </header>
+    <div class="container">
+        <form method="POST" action="/classify">
+            <label for="email">Enter a Message:</label>
+            <textarea name="email" id="email" rows="5" cols="40" required></textarea>
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+    <div class="note">
+        <p>Created By: Abhas</p>
+    </div>
+      
+</body>
+</html>
