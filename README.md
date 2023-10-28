@@ -39,4 +39,4 @@ Before using this project, you need to have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/spam-message-classification.git
+   git clone https://github.com/yourusername/Spam_Classifier_Model.git
