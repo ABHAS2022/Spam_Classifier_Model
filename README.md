@@ -42,7 +42,7 @@ Before using this project, you need to have the following installed:
 
 
 ## Training the Model
-The project includes a training dataset from [Kaggle][https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset] to train the classification model. 
+The project includes a training dataset from [Kaggle](https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset) to train the classification model. 
 
 ### Evaluation
 We can evaluate the model's performance using metrics like accuracy, precision, recall, and F1-score. Details are provided in the evaluation script.
