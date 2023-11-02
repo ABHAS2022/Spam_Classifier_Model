@@ -4,11 +4,14 @@ import nltk
 from nltk.corpus import stopwords
 import string
 from nltk.stem.snowball import SnowballStemmer
-word = SnowballStemmer('english')
-tf = pickle.load(open("vectorizer.pkl","rb"))
-mnb = pickle.load(open("mnb.pkl","rb"))
+import os
 
-def transformed_text(text,tf,mnb):
+loc = os.getcwd()
+word = SnowballStemmer('english')
+tf = pickle.load(open(loc + "\\vectorizer.pkl","rb"))
+mnb = pickle.load(open(loc + "\\mnb.pkl","rb"))
+
+def transformed_text(text):
     text = nltk.word_tokenize(text)
     count = 0
     for i in text:
@@ -20,12 +23,8 @@ def transformed_text(text,tf,mnb):
     for i in text:
         if i in stopwords.words('english'):
             text.remove(i)
-    s = " ".join(text)
-    l = tf.transform([s])
-    pred = mnb.predict(l)
-    if (pred == 1):
-        return 'Spam'
-    return "Not Spam"
+    return " ".join(text)
+
 
 # Import the Flask class from the flask module
 from flask import Flask, render_template
@@ -47,7 +46,12 @@ def fun1():
 @app.route('/classify', methods = ['POST'])
 def fun():
     text = request.form.get('email')
-    prediction = transformed_text(text,tf,mnb)
+    l = tf.transform([transformed_text(text)])
+    pred = mnb.predict(l)
+    if (pred == 1):
+        prediction = 'Spam'
+    else:   
+        prediction = "Not Spam"
     return render_template('output.html', prediction=prediction)
     
 # Run the app if this file is executed as the main script
